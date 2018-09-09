@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Layout from "../components/Layout";
+import Navbar from "../components/Navbar";
 
 export const HomePageTemplate = ({ title, subtitle, headshot }) => {
-  console.log(headshot)
+  console.log(headshot);
   return (
     <Layout>
       <section>
@@ -11,11 +12,14 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
           <div className="column">
             <h1 className="title is-1 uppercase">{title}</h1>
             <h2 className="subtitle is-2">{subtitle}</h2>
+
+            <Navbar />
           </div>
           <div className="column">
-            <div className="circle"
+            <div
+              className="circle"
               style={{ backgroundImage: `url(${headshot})` }}
-             />
+            />
           </div>
         </div>
       </section>

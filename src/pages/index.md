@@ -1,7 +1,7 @@
 ---
 templateKey: 'home-page'
 title: Jamie Finkelstein
-subtitle: UX 
+subtitle: UX Designer
 headshot: /img/headshot.jpg
 meta_title: Jamie Fink Design
 meta_description: >-
