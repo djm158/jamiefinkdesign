@@ -13,6 +13,8 @@ $title-size: 36px
 $subtitle-size: 28px
 $subtitle-color: $primary
 
+@import "~bulma"
+
 .column.landing
   display: flex
   flex-flow: column
@@ -28,12 +30,14 @@ $subtitle-color: $primary
   margin-right: auto
   top: 20%
   .navbar-item:first-child
-    padding-left: 0
+    @include from ($desktop)
+      padding-left: 0
 
 .column.landing > h1, .column.landing > h2
-  width: 80%
-  margin-left: auto
-  margin-right: auto
+  @include from($desktop)
+    width: 80%
+    margin-left: auto
+    margin-right: auto
   
 .bg-primary
   background-color: $primary
@@ -42,8 +46,11 @@ $subtitle-color: $primary
   text-transform: uppercase
 
 .circle
-  width: 453px
-  height: 453px
+  width: 300px
+  height: 300px
+  @include from ($desktop)
+    width: 453px
+    height: 453px
   background-color: #d8d8d8
   border: solid 1px #979797
   border-radius: 100%
@@ -90,4 +97,4 @@ $subtitle-color: $primary
 .margin-top-0
   margin-top: 0 !important
 
-@import "~bulma"
+
