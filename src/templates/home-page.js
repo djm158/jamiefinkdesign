@@ -2,7 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import Layout from "../components/Layout";
 
-export const HomePageTemplate = ({ title, subtitle }) => {
+export const HomePageTemplate = ({ title, subtitle, headshot }) => {
+  console.log(headshot)
   return (
     <Layout>
       <section>
@@ -12,7 +13,9 @@ export const HomePageTemplate = ({ title, subtitle }) => {
             <h2 className="subtitle is-2">{subtitle}</h2>
           </div>
           <div className="column">
-            <div className="circle" />
+            <div className="circle"
+              style={{ backgroundImage: `url(${headshot})` }}
+             />
           </div>
         </div>
       </section>
@@ -32,6 +35,7 @@ const HomePage = ({ data }) => {
     <HomePageTemplate
       title={post.frontmatter.title}
       subtitle={post.frontmatter.subtitle}
+      headshot={post.frontmatter.headshot}
     />
   );
 };
@@ -48,6 +52,7 @@ export const homePageQuery = graphql`
       frontmatter {
         title
         subtitle
+        headshot
       }
     }
   }
