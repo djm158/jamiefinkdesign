@@ -4,15 +4,40 @@
 $kaldi-red: #FD461E
 $kaldi-red-invert: #fff
 
-$primary: $kaldi-red
+$primary: #3978ad
 $primary-invert: $kaldi-red-invert
 
-$title-color: #3978ad
+$title-color: $primary
 $title-size: 36px
   
 $subtitle-size: 28px
-$subtitle-color: $title-color
+$subtitle-color: $primary
 
+.column.landing
+  display: flex
+  flex-flow: column
+  justify-content: center
+  position: 
+
+.column.landing > nav
+  top: 0
+  position: relative
+  font-size: 24px
+  width: 80%
+  margin-left: auto
+  margin-right: auto
+  top: 20%
+  .navbar-item:first-child
+    padding-left: 0
+
+.column.landing > h1, .column.landing > h2
+  width: 80%
+  margin-left: auto
+  margin-right: auto
+  
+.bg-primary
+  background-color: $primary
+  
 .navbar-start > a
   text-transform: uppercase
 
@@ -25,6 +50,7 @@ $subtitle-color: $title-color
   background-size: cover
   background-position: center center
   background-repeat: no-repeat
+  margin: 0 auto
 
 .uppercase
   text-transform: uppercase

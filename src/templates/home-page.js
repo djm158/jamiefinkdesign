@@ -8,14 +8,14 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
   return (
     <Layout>
       <section>
-        <div className="columns is-vcentered is-fullheight">
-          <div className="column">
+        <div className="columns is-fullheight is-gapless">
+          <div className="column landing">
             <h1 className="title is-1 uppercase">{title}</h1>
             <h2 className="subtitle is-2">{subtitle}</h2>
 
             <Navbar />
           </div>
-          <div className="column">
+          <div className="column landing bg-primary">
             <div
               className="circle"
               style={{ backgroundImage: `url(${headshot})` }}
