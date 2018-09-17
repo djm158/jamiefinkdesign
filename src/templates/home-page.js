@@ -16,10 +16,45 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
             <Navbar />
           </div>
           <div className="column landing bg-primary">
+            {/* TODO: see if this should be .is-rounded */}
             <div
               className="circle"
               style={{ backgroundImage: `url(${headshot})` }}
             />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <div className="columns is-fullheight is-gapless">
+          <div className="column bg-secondary">
+            <div className="tile is-ancestor">
+              <div className="tile is-parent is-vertical">
+                <div className="tile is-child">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam
+                </div>
+                <div className="tile">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam
+                </div>
+              </div>
+              <div className="tile is-parent">
+                <div className="tile is-child">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                  Ut enim ad minim veniam
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="column">
+            <h1 className="title secondary">50 days of UI</h1>
+            <p>Goal:</p>
+            <p>Role:</p>
+            <p>Resources:</p>
           </div>
         </div>
       </section>
