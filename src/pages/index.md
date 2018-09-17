@@ -1,13 +1,7 @@
 ---
-templateKey: 'home-page'
+templateKey: home-page
 title: Jamie Finkelstein
-subtitle: UX Designer
-headshot: /img/headshot.jpg
-meta_title: Jamie Fink Design
-meta_description: >-
-  Cum sociis natoque penatibus et magnis dis parturient montes, nascetur
-  ridiculus mus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam
-  venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis
-  consectetur purus sit amet fermentum.
-heading: Lorem ipsum dolor sit amet
+subtitle: 'Candidate: M.S. User Experience and Interaction Design'
+headshot: /img/_intranet-background.jpg
 ---
+
