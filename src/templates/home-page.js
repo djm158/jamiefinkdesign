@@ -26,22 +26,36 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
 
       <section>
         <div className="columns is-fullheight is-marginless">
-          <div className="column bg-secondary">
+          <div className="column bg-secondary second">
             <div className="grid">
-              <div className="item big"></div>
-              <div className="item"></div>
-              <div className="item"></div>
-              <div className="item"></div>
-              <div className="item"></div>
-              <div className="item"></div>
-              <div className="item long"></div>
+              <div className="item big">
+                <img src="https://bulma.io/images/placeholders/640x480.png" />
+              </div>
+              <div className="item">
+                <img src="https://bulma.io/images/placeholders/640x480.png" />
+              </div>
+              <div className="item">
+                <img src="https://bulma.io/images/placeholders/640x480.png" />
+              </div>
+              <div className="item">
+                <img src="https://bulma.io/images/placeholders/640x480.png" />
+              </div>
+              <div className="item">
+                <img src="https://bulma.io/images/placeholders/640x480.png" />
+              </div>
+              <div className="item">
+                <img src="https://bulma.io/images/placeholders/640x480.png" />
+              </div>
+              <div className="item long">
+                <img src="https://bulma.io/images/placeholders/640x480.png" />
+              </div>
             </div>
           </div>
-          <div className="column">
-            <h1 className="title secondary">50 days of UI</h1>
-            <p>Goal:</p>
-            <p>Role:</p>
-            <p>Resources:</p>
+          <div className="column landing">
+            <h1 className="title is-super secondary has-text-centered	uppercase">50 days of UI</h1>
+            <p className="title is-4 secondary has-text-right">Goal:</p>
+            <p className="title is-4 secondary has-text-right">Role:</p>
+            <p className="title is-4 secondary has-text-right">Resources:</p>
           </div>
         </div>
       </section>
