@@ -40,3 +40,21 @@
   background-position: center center
   background-repeat: no-repeat
   margin: 0 auto
+
+.grid
+  display: grid
+  grid-template-columns: 1fr 1fr 1fr
+  grid-template-rows: 1fr 1fr 1fr 1fr
+  grid-column-gap: 10px
+  grid-row-gap: 15px
+  height: 100%
+
+.item
+  border: 1px solid red
+
+.big
+  grid-column: auto / span 2
+  grid-row: auto / span 2
+
+.long
+  grid-column: auto / span 3

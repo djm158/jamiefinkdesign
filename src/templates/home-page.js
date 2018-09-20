@@ -4,11 +4,10 @@ import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 
 export const HomePageTemplate = ({ title, subtitle, headshot }) => {
-  console.log(headshot);
   return (
     <Layout>
       <section>
-        <div className="columns is-fullheight is-gapless">
+        <div className="columns is-fullheight is-marginless">
           <div className="column landing">
             <h1 className="title is-1 uppercase">{title}</h1>
             <h2 className="subtitle is-2">{subtitle}</h2>
@@ -26,28 +25,16 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
       </section>
 
       <section>
-        <div className="columns is-fullheight is-gapless">
+        <div className="columns is-fullheight is-marginless">
           <div className="column bg-secondary">
-            <div className="tile is-ancestor">
-              <div className="tile is-parent is-vertical">
-                <div className="tile is-child">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                </div>
-                <div className="tile">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                </div>
-              </div>
-              <div className="tile is-parent">
-                <div className="tile is-child">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam
-                </div>
-              </div>
+            <div className="grid">
+              <div className="item big"></div>
+              <div className="item"></div>
+              <div className="item"></div>
+              <div className="item"></div>
+              <div className="item"></div>
+              <div className="item"></div>
+              <div className="item long"></div>
             </div>
           </div>
           <div className="column">
