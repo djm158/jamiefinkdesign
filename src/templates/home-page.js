@@ -30,25 +30,46 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
           <div className="column bg-secondary second">
             <div className="grid">
               <div className="item big">
-                <img src="https://bulma.io/images/placeholders/640x480.png" />
+                <img
+                  alt="test"
+                  src="https://bulma.io/images/placeholders/640x480.png"
+                />
               </div>
               <div className="item">
-                <img src="https://bulma.io/images/placeholders/640x480.png" />
+                <img
+                  alt="test"
+                  src="https://bulma.io/images/placeholders/640x480.png"
+                />
               </div>
               <div className="item">
-                <img src="https://bulma.io/images/placeholders/640x480.png" />
+                <img
+                  alt="test"
+                  src="https://bulma.io/images/placeholders/640x480.png"
+                />
               </div>
               <div className="item">
-                <img src="https://bulma.io/images/placeholders/640x480.png" />
+                <img
+                  alt="test"
+                  src="https://bulma.io/images/placeholders/640x480.png"
+                />
               </div>
               <div className="item">
-                <img src="https://bulma.io/images/placeholders/640x480.png" />
+                <img
+                  alt="test"
+                  src="https://bulma.io/images/placeholders/640x480.png"
+                />
               </div>
               <div className="item">
-                <img src="https://bulma.io/images/placeholders/640x480.png" />
+                <img
+                  alt="test"
+                  src="https://bulma.io/images/placeholders/640x480.png"
+                />
               </div>
               <div className="item long">
-                <img src="https://bulma.io/images/placeholders/640x480.png" />
+                <img
+                  alt="test"
+                  src="https://bulma.io/images/placeholders/640x480.png"
+                />
               </div>
             </div>
           </div>
@@ -75,6 +96,7 @@ HomePageTemplate.propTypes = {
 
 const HomePage = ({ data }) => {
   const { markdownRemark: post } = data;
+  console.log(data);
 
   return (
     <HomePageTemplate
@@ -98,6 +120,22 @@ export const homePageQuery = graphql`
         title
         subtitle
         headshot
+      }
+    }
+    allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "project" } } }
+    ) {
+      edges {
+        node {
+          id
+          fields {
+            slug
+          }
+          frontmatter {
+            title
+            image
+          }
+        }
       }
     }
   }
