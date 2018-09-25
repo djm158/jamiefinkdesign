@@ -19,6 +19,10 @@
       padding-left: 0
 
 .column.second
+  display: flex
+  flex-flow: column
+  align-items: center
+  justify-content: center
 
 .column.landing > h1, .column.landing > h2
   @include from($desktop)
@@ -52,10 +56,9 @@
   height: 75%
 
 .item
-  border: 1px solid red
-
   img
     max-height: 100%
+    height: 100%
     width: 100%
 
 .big
@@ -67,3 +70,8 @@
 
 .is-super
   font-size: 54px
+
+.heading-container
+  display: flex
+  flex-flow: column
+  align-items: flex-end

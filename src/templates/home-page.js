@@ -1,4 +1,5 @@
 import React from "react";
+import { graphql } from "gatsby";
 import PropTypes from "prop-types";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
@@ -52,10 +53,14 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
             </div>
           </div>
           <div className="column landing">
-            <h1 className="title is-super secondary has-text-centered	uppercase">50 days of UI</h1>
-            <p className="title is-4 secondary has-text-right">Goal:</p>
-            <p className="title is-4 secondary has-text-right">Role:</p>
-            <p className="title is-4 secondary has-text-right">Resources:</p>
+            <div className="heading-container">
+              <h1 className="title is-super secondary	uppercase">
+                50 days of UI
+              </h1>
+              <p className="title is-4 secondary">Goal:</p>
+              <p className="title is-4 secondary">Role:</p>
+              <p className="title is-4 secondary">Resources:</p>
+            </div>
           </div>
         </div>
       </section>
