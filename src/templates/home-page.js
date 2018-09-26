@@ -1,10 +1,10 @@
 import React from "react";
-import { graphql } from "gatsby";
+import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 
-export const HomePageTemplate = ({ title, subtitle, headshot }) => {
+export const HomePageTemplate = ({ title, subtitle, headshot, mainProject }) => {
   return (
     <Layout>
       <section>
@@ -30,44 +30,46 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
           <div className="column bg-secondary second">
             <div className="grid">
               <div className="item big">
+                <Link to={mainProject.fields.slug}>
+                  <img
+                    alt="test1"
+                    src={mainProject.frontmatter.image}
+                  />
+                </Link>
+              </div>
+              <div className="item">
                 <img
-                  alt="test"
+                  alt="test2"
                   src="https://bulma.io/images/placeholders/640x480.png"
                 />
               </div>
               <div className="item">
                 <img
-                  alt="test"
+                  alt="test3"
                   src="https://bulma.io/images/placeholders/640x480.png"
                 />
               </div>
               <div className="item">
                 <img
-                  alt="test"
+                  alt="test4"
                   src="https://bulma.io/images/placeholders/640x480.png"
                 />
               </div>
               <div className="item">
                 <img
-                  alt="test"
+                  alt="test5"
                   src="https://bulma.io/images/placeholders/640x480.png"
                 />
               </div>
               <div className="item">
                 <img
-                  alt="test"
-                  src="https://bulma.io/images/placeholders/640x480.png"
-                />
-              </div>
-              <div className="item">
-                <img
-                  alt="test"
+                  alt="test6"
                   src="https://bulma.io/images/placeholders/640x480.png"
                 />
               </div>
               <div className="item long">
                 <img
-                  alt="test"
+                  alt="test7"
                   src="https://bulma.io/images/placeholders/640x480.png"
                 />
               </div>
@@ -91,18 +93,20 @@ export const HomePageTemplate = ({ title, subtitle, headshot }) => {
 
 HomePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
-  subtitle: PropTypes.string.isRequired
+  subtitle: PropTypes.string.isRequired,
+  mainProject: PropTypes.object.isRequired
 };
 
 const HomePage = ({ data }) => {
-  const { markdownRemark: post } = data;
-  console.log(data);
+  const { markdownRemark: indexData } = data;
+  const { allMarkdownRemark: projects } = data;
 
   return (
     <HomePageTemplate
-      title={post.frontmatter.title}
-      subtitle={post.frontmatter.subtitle}
-      headshot={post.frontmatter.headshot}
+      title={indexData.frontmatter.title}
+      subtitle={indexData.frontmatter.subtitle}
+      headshot={indexData.frontmatter.headshot}
+      mainProject={projects.edges[0].node}
     />
   );
 };
