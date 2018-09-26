@@ -30,11 +30,14 @@ export const HomePageTemplate = ({ title, subtitle, headshot, projects }) => {
           <div className="column bg-secondary second">
             <div className="grid">
               {projects.map(project => {
+                console.log(project.node);
+                console.log(project.node.frontmatter.order == 1);
                 return (
                   <div
-                    className={
-                      "item " + project.node.frontmatter.order === 1 ? "big" : ""
-                    }
+                    key={project.node.id}
+                    className={`item ${
+                      project.node.frontmatter.order == 1 ? "big" : ""
+                    }`}
                   >
                     <Link to={project.node.fields.slug}>
                       <img alt="test1" src={project.node.frontmatter.image} />
@@ -42,42 +45,6 @@ export const HomePageTemplate = ({ title, subtitle, headshot, projects }) => {
                   </div>
                 );
               })}
-              {/* <div className="item">
-                <img
-                  alt="test2"
-                  src="https://bulma.io/images/placeholders/640x480.png"
-                />
-              </div>
-              <div className="item">
-                <img
-                  alt="test3"
-                  src="https://bulma.io/images/placeholders/640x480.png"
-                />
-              </div>
-              <div className="item">
-                <img
-                  alt="test4"
-                  src="https://bulma.io/images/placeholders/640x480.png"
-                />
-              </div>
-              <div className="item">
-                <img
-                  alt="test5"
-                  src="https://bulma.io/images/placeholders/640x480.png"
-                />
-              </div>
-              <div className="item">
-                <img
-                  alt="test6"
-                  src="https://bulma.io/images/placeholders/640x480.png"
-                />
-              </div>
-              <div className="item long">
-                <img
-                  alt="test7"
-                  src="https://bulma.io/images/placeholders/640x480.png"
-                />
-              </div> */}
             </div>
           </div>
           <div className="column landing">
