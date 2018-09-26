@@ -1,4 +1,5 @@
 ---
+templateKey: project
 title: test
 goal: test
 role: test
