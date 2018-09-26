@@ -30,8 +30,6 @@ export const HomePageTemplate = ({ title, subtitle, headshot, projects }) => {
           <div className="column bg-secondary second">
             <div className="grid">
               {projects.map(project => {
-                console.log(project.node);
-                console.log(project.node.frontmatter.order == 1);
                 return (
                   <div
                     key={project.node.id}
