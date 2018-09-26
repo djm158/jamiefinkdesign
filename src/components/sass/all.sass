@@ -1,22 +1,18 @@
 @import "~bulma/sass/utilities/initial-variables"
 
-// Config vars
-$kaldi-red: #FD461E
-$kaldi-red-invert: #fff
-
-$primary: #3978ad
-$primary-invert: $kaldi-red-invert
-
-$title-color: $primary
-$title-size: 36px
-  
-$subtitle-size: 28px
-$subtitle-color: $primary
-
 @import "~bulma"
+@import "./theme.sass"
+@import "./project.sass"
 @import "./home-page.sass"
+
 .bg-primary
   background-color: $primary
+
+.bg-secondary
+  background-color: $secondary
+
+.secondary
+  color: $secondary
 
 .uppercase
   text-transform: uppercase
@@ -56,4 +52,5 @@ $subtitle-color: $primary
 .margin-top-0
   margin-top: 0 !important
 
-
+.margin-bottom-75
+  margin-bottom: 0.75rem !important
