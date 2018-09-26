@@ -1,9 +1,8 @@
 ---
 title: test
-image: /img/headshot.jpg
-templateKey: project
-goal: to design cool stuff
-role: button
-resources: google
-order: 1
+goal: test
+role: test
+resources: test
+image: /img/_intranet-background.jpg
+order: '1'
 ---
