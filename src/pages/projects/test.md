@@ -1,6 +1,10 @@
 ---
 templateKey: projects
 title: test
-imagea: /img/dan-emoji.png
+goal: test
+role: test
+resources: test
+image: /img/_intranet-background.jpg
+order: '1'
 ---
 
