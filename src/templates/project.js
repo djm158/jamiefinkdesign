@@ -1,25 +1,35 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
-import Layout from "../components/Layout";
 
 export const ProjectTemplate = ({ project }) => {
   return (
-    <Layout>
-      <h1 className="title">{project.title}</h1>
-      <img src={project.image} alt="UI Project" />
-      <br />
-      <Link to="/#ui">Take me back!</Link>
-    </Layout>
+    <>
+      <div className="two-column-bg" />
+      <div className="modal">
+        <div className="modal-container">
+          <h1 className="title project-title">{project.title}</h1>
+          <p className="project-desc">Goal: {project.goal}</p>
+          <p className="project-desc">Role: {project.role}</p>
+          <p className="project-desc">Resources: {project.resources}</p>
+          <Link to="/#ui">Take me back!</Link>
+        </div>
+        <img className="project-img" src={project.image} alt="UI Project" />
+        <br />
+      </div>
+    </>
   );
 };
 
-ProjectTemplate.PropTypes = {
+ProjectTemplate.propTypes = {
   project: PropTypes.shape({
     image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    role: PropTypes.string,
+    goal: PropTypes.string,
+    resources: PropTypes.string
   })
-}
+};
 
 const Project = ({ data }) => {
   const { markdownRemark: project } = data;
@@ -34,6 +44,9 @@ export const ProjectQuery = graphql`
       frontmatter {
         title
         image
+        goal
+        role
+        resources
       }
     }
   }

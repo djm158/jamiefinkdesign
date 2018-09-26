@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
 
-export const HomePageTemplate = ({ title, subtitle, headshot, mainProject }) => {
+export const HomePageTemplate = ({ title, subtitle, headshot, projects }) => {
   return (
     <Layout>
       <section>
@@ -29,15 +29,20 @@ export const HomePageTemplate = ({ title, subtitle, headshot, mainProject }) => 
         <div className="columns is-fullheight is-marginless">
           <div className="column bg-secondary second">
             <div className="grid">
-              <div className="item big">
-                <Link to={mainProject.fields.slug}>
-                  <img
-                    alt="test1"
-                    src={mainProject.frontmatter.image}
-                  />
-                </Link>
-              </div>
-              <div className="item">
+              {projects.map(project => {
+                return (
+                  <div
+                    className={
+                      "item " + project.node.frontmatter.order === 1 ? "big" : ""
+                    }
+                  >
+                    <Link to={project.node.fields.slug}>
+                      <img alt="test1" src={project.node.frontmatter.image} />
+                    </Link>
+                  </div>
+                );
+              })}
+              {/* <div className="item">
                 <img
                   alt="test2"
                   src="https://bulma.io/images/placeholders/640x480.png"
@@ -72,7 +77,7 @@ export const HomePageTemplate = ({ title, subtitle, headshot, mainProject }) => 
                   alt="test7"
                   src="https://bulma.io/images/placeholders/640x480.png"
                 />
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="column landing">
@@ -94,19 +99,18 @@ export const HomePageTemplate = ({ title, subtitle, headshot, mainProject }) => 
 HomePageTemplate.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string.isRequired,
-  mainProject: PropTypes.object.isRequired
+  projects: PropTypes.array.isRequired
 };
 
 const HomePage = ({ data }) => {
   const { markdownRemark: indexData } = data;
   const { allMarkdownRemark: projects } = data;
-
   return (
     <HomePageTemplate
       title={indexData.frontmatter.title}
       subtitle={indexData.frontmatter.subtitle}
       headshot={indexData.frontmatter.headshot}
-      mainProject={projects.edges[0].node}
+      projects={projects.edges}
     />
   );
 };
@@ -136,8 +140,8 @@ export const homePageQuery = graphql`
             slug
           }
           frontmatter {
-            title
             image
+            order
           }
         }
       }
