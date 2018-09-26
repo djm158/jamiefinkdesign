@@ -70,12 +70,13 @@ HomePageTemplate.propTypes = {
 const HomePage = ({ data }) => {
   const { markdownRemark: indexData } = data;
   const { allMarkdownRemark: projects } = data;
+  console.log(projects.edges)
   return (
     <HomePageTemplate
       title={indexData.frontmatter.title}
       subtitle={indexData.frontmatter.subtitle}
       headshot={indexData.frontmatter.headshot}
-      projects={projects.edges}
+      projects={projects.edges.sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order)}
     />
   );
 };
