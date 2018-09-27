@@ -4,6 +4,7 @@ title: test
 goal: test
 role: test
 resources: test
-image: /img/_intranet-background.jpg
+image: /static/img/_intranet-background.jpg
 order: '1'
+relpath: ../../..
 ---

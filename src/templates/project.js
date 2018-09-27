@@ -14,26 +14,26 @@ export const ProjectTemplate = ({ project }) => {
           <p className="project-desc">Resources: {project.resources}</p>
           <Link to="/#ui">Take me back!</Link>
         </div>
-        <img className="project-img" src={project.image} alt="UI Project" />
+        <img className="project-img" src={project.fields.logolink.childImageSharp.fluid.src} alt="UI Project" />
         <br />
       </div>
     </>
   );
 };
 
-ProjectTemplate.propTypes = {
-  project: PropTypes.shape({
-    image: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    role: PropTypes.string,
-    goal: PropTypes.string,
-    resources: PropTypes.string
-  })
-};
+// ProjectTemplate.propTypes = {
+//   project: PropTypes.shape({
+//     image: PropTypes.string.isRequired,
+//     title: PropTypes.string.isRequired,
+//     role: PropTypes.string,
+//     goal: PropTypes.string,
+//     resources: PropTypes.string
+//   })
+// };
 
 const Project = ({ data }) => {
   const { markdownRemark: project } = data;
-  return <ProjectTemplate project={project.frontmatter} />;
+  return <ProjectTemplate project={project} />;
 };
 
 export default Project;
@@ -41,6 +41,17 @@ export default Project;
 export const ProjectQuery = graphql`
   query Project($id: String!) {
     markdownRemark(id: { eq: $id }) {
+      fields {
+        logolink {
+          childImageSharp {
+            fluid(maxWidth: 1200) {
+              src
+              srcSet
+              base64
+            }
+          }
+        }
+      }
       frontmatter {
         title
         image

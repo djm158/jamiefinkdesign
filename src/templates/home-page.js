@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby";
 import PropTypes from "prop-types";
 import Layout from "../components/Layout";
 import Navbar from "../components/Navbar";
+import Img from 'gatsby-image'
+
 
 export const HomePageTemplate = ({ title, subtitle, headshot, projects }) => {
   return (
@@ -38,7 +40,7 @@ export const HomePageTemplate = ({ title, subtitle, headshot, projects }) => {
                     }`}
                   >
                     <Link to={project.node.fields.slug}>
-                      <img alt="test1" src={project.node.frontmatter.image} />
+                      <img alt="test1" src={project.node.fields.logolink.childImageSharp.fluid.src} />
                     </Link>
                   </div>
                 );
@@ -70,7 +72,7 @@ HomePageTemplate.propTypes = {
 const HomePage = ({ data }) => {
   const { markdownRemark: indexData } = data;
   const { allMarkdownRemark: projects } = data;
-  console.log(projects.edges)
+  console.log(projects)
   return (
     <HomePageTemplate
       title={indexData.frontmatter.title}
@@ -104,6 +106,13 @@ export const homePageQuery = graphql`
           id
           fields {
             slug
+            logolink {
+              childImageSharp {
+                fluid(maxWidth: 200, quality: 100) {
+                  ...GatsbyImageSharpFluid
+                }
+              }
+            }
           }
           frontmatter {
             image
