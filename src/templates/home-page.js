@@ -40,7 +40,7 @@ export const HomePageTemplate = ({ title, subtitle, headshot, projects }) => {
                     }`}
                   >
                     <Link to={project.node.fields.slug}>
-                      <img alt="test1" src={project.node.fields.logolink.childImageSharp.fluid.src} />
+                      <img alt="test1" src={project.node.frontmatter.media.childImageSharp.fluid.src} />
                     </Link>
                   </div>
                 );
@@ -72,12 +72,11 @@ HomePageTemplate.propTypes = {
 const HomePage = ({ data }) => {
   const { markdownRemark: indexData } = data;
   const { allMarkdownRemark: projects } = data;
-  console.log(projects)
   return (
     <HomePageTemplate
       title={indexData.frontmatter.title}
       subtitle={indexData.frontmatter.subtitle}
-      headshot={indexData.frontmatter.headshot}
+      headshot={indexData.frontmatter.headshot.childImageSharp.fluid.src}
       projects={projects.edges.sort((a, b) => a.node.frontmatter.order - b.node.frontmatter.order)}
     />
   );
@@ -95,7 +94,13 @@ export const homePageQuery = graphql`
       frontmatter {
         title
         subtitle
-        headshot
+        headshot {
+          childImageSharp {
+            fluid(maxWidth: 1000, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
     allMarkdownRemark(
@@ -106,16 +111,15 @@ export const homePageQuery = graphql`
           id
           fields {
             slug
-            logolink {
+          }
+          frontmatter {
+            media {
               childImageSharp {
-                fluid(maxWidth: 200, quality: 100) {
+                fluid(maxWidth: 400, quality: 100) {
                   ...GatsbyImageSharpFluid
                 }
               }
             }
-          }
-          frontmatter {
-            image
             order
           }
         }

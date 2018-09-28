@@ -17,9 +17,8 @@ collections:
       - {label: "Goal", name: "goal", widget: "string"}
       - {label: "Role", name: "role", widget: "string"}
       - {label: "Resources", name: "resources", widget: "string"}
-      - {label: "Image", name: "image", widget: "image"}
       - {label: "Order", name: "order", widget: "number", min: 1, max: 7, default: 1}
-      - {label: "Relative Path", name: "relpath", widget: "hidden", default: "../../.."}
+      - {label: "Image", name: "media", widget: "image"}
 
   - name: "pages"
     label: "Pages"

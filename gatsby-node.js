@@ -55,15 +55,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       node,
       value
     });
-    if (node.frontmatter.relpath && node.frontmatter.image ) {
-  
-        const logopath = node.frontmatter.relpath + node.frontmatter.image
-  
-        createNodeField({
-          node,
-          name: 'logolink',
-          value: logopath
-        });
-      }
   }
 };

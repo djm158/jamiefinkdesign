@@ -14,7 +14,7 @@ export const ProjectTemplate = ({ project }) => {
           <p className="project-desc">Resources: {project.resources}</p>
           <Link to="/#ui">Take me back!</Link>
         </div>
-        <img className="project-img" src={project.fields.logolink.childImageSharp.fluid.src} alt="UI Project" />
+        <img className="project-img" src={project.frontmatter.media.childImageSharp.fluid.src} alt="UI Project" />
         <br />
       </div>
     </>
@@ -41,8 +41,9 @@ export default Project;
 export const ProjectQuery = graphql`
   query Project($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      fields {
-        logolink {
+      frontmatter {
+        title
+        media {
           childImageSharp {
             fluid(maxWidth: 1200) {
               src
@@ -51,10 +52,6 @@ export const ProjectQuery = graphql`
             }
           }
         }
-      }
-      frontmatter {
-        title
-        image
         goal
         role
         resources
